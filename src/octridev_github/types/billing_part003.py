@@ -152,7 +152,7 @@ class Budget(BaseModel):
 
     @example "2066deda-923f-43f9-88d2-62395a28c0cdd"
     """
-    budget_type: Literal["SkuPricing", "ProductPricing"] | str
+    budget_type: Literal["SkuPricing"] | str | Literal["ProductPricing"]
     """
     The type of pricing for the budget
 
