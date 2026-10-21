@@ -186,8 +186,10 @@ async def billing_create_organization_budget(
     | str
     | NotGiven = NOT_GIVEN,
     budget_entity_name: str | NotGiven = NOT_GIVEN,
-    budget_type: Literal["BundlePricing", "ProductPricing", "SkuPricing"]
+    budget_type: Literal["BundlePricing"]
     | str
+    | Literal["ProductPricing"]
+    | Literal["SkuPricing"]
     | NotGiven = NOT_GIVEN,
     budget_product_sku: str | NotGiven = NOT_GIVEN,
     user: str | NotGiven = NOT_GIVEN,
@@ -314,8 +316,10 @@ def billing_create_organization_budget_sync(
     | str
     | NotGiven = NOT_GIVEN,
     budget_entity_name: str | NotGiven = NOT_GIVEN,
-    budget_type: Literal["BundlePricing", "ProductPricing", "SkuPricing"]
+    budget_type: Literal["BundlePricing"]
     | str
+    | Literal["ProductPricing"]
+    | Literal["SkuPricing"]
     | NotGiven = NOT_GIVEN,
     budget_product_sku: str | NotGiven = NOT_GIVEN,
     user: str | NotGiven = NOT_GIVEN,
