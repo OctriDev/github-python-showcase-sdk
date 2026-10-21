@@ -189,7 +189,7 @@ class CreateBudgetBudget(BaseModel):
 
     @example "actions_linux"
     """
-    budget_type: Literal["ProductPricing"] | str | Literal["SkuPricing"] | NotGiven = NOT_GIVEN
+    budget_type: Literal["ProductPricing", "SkuPricing"] | str | NotGiven = NOT_GIVEN
     """
     The type of pricing for the budget
 
@@ -298,7 +298,7 @@ class GetBudget(BaseModel):
 
     @example "actions_linux"
     """
-    budget_type: Literal["ProductPricing"] | str | Literal["SkuPricing"]
+    budget_type: Literal["ProductPricing", "SkuPricing"] | str
     """
     The type of pricing for the budget
 
@@ -418,7 +418,7 @@ class UpdateBudgetBudget(BaseModel):
 
     @example "actions_linux"
     """
-    budget_type: Literal["ProductPricing"] | str | Literal["SkuPricing"] | NotGiven = NOT_GIVEN
+    budget_type: Literal["ProductPricing", "SkuPricing"] | str | NotGiven = NOT_GIVEN
     """
     The type of pricing for the budget
 
