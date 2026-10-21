@@ -46,7 +46,7 @@ def _validate_pydantic_response(value: Any, response_type: Any) -> Any:
         ) from error
 
 
-async def gitignore_get_all_templates(
+async def list_templates(
     _client_config: ClientConfig,
     *,
     request_options: RequestOptions | None = None,
@@ -59,7 +59,7 @@ async def gitignore_get_all_templates(
     _resp = await sdk_request(
         "GET",
         "/gitignore/templates",
-        operation_id="gitignore_get_all_templates",
+        operation_id="list_templates",
         response_decoder="json",
         request_options=request_options,
         config=_client_config,
@@ -67,7 +67,7 @@ async def gitignore_get_all_templates(
     return sdk_decode(_resp, lambda response: _validate_pydantic_response(response.data, list[str]))
 
 
-def gitignore_get_all_templates_sync(
+def list_templates_sync(
     _client_config: ClientConfig,
     *,
     request_options: RequestOptions | None = None,
@@ -80,7 +80,7 @@ def gitignore_get_all_templates_sync(
     _resp = sdk_request_sync(
         "GET",
         "/gitignore/templates",
-        operation_id="gitignore_get_all_templates",
+        operation_id="list_templates",
         response_decoder="json",
         request_options=request_options,
         config=_client_config,
@@ -155,8 +155,8 @@ def gitignore_get_template_sync(
 
 
 __all__ = [
-    "gitignore_get_all_templates",
-    "gitignore_get_all_templates_sync",
     "gitignore_get_template",
     "gitignore_get_template_sync",
+    "list_templates",
+    "list_templates_sync",
 ]

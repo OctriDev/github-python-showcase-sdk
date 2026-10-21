@@ -3,7 +3,7 @@
 
 import importlib
 
-from .activity_part001 import (
+from .activity_get_feeds import (
     CreateEvent,
     DeleteEvent,
     DiscussionEvent,
@@ -15,7 +15,20 @@ from .activity_part001 import (
     StarredRepository,
     ThreadSubscription,
 )
-from .activity_part002 import (
+from .activity_get_feeds2 import (
+    ActivityGetStargazerCountForRepoResponse,
+    ActivityMarkNotificationsAsReadResponse,
+    ActivityMarkRepoNotificationsAsReadResponse,
+    Event,
+    EventPayload,
+    EventRepo,
+    Feed,
+    FeedLinks,
+    Stargazer,
+    Thread,
+    ThreadSubject,
+)
+from .activity_shared import (
     ForkEvent,
     ForkEventForkee,
     GollumEvent,
@@ -25,7 +38,7 @@ from .activity_part002 import (
     PullRequestEvent,
     PushEvent,
 )
-from .activity_part003 import (
+from .activity_shared2 import (
     CommitCommentEvent,
     CommitCommentEventComment,
     PullRequestReviewCommentEvent,
@@ -42,26 +55,13 @@ from .activity_part003 import (
     PullRequestReviewEventReviewLinksHtml,
     PullRequestReviewEventReviewLinksPullRequest,
 )
-from .activity_part004 import Actor, ReleaseEvent, ReleaseEventRelease, WatchEvent
-from .activity_part005 import (
+from .activity_shared3 import Actor, ReleaseEvent, ReleaseEventRelease, WatchEvent
+from .activity_shared4 import (
     Discussion,
     DiscussionAnswerChosenBy,
     DiscussionCategory,
     DiscussionReactions,
     DiscussionUser,
-)
-from .activity_part006 import (
-    ActivityGetStargazerCountForRepoResponse,
-    ActivityMarkNotificationsAsReadResponse,
-    ActivityMarkRepoNotificationsAsReadResponse,
-    Event,
-    EventPayload,
-    EventRepo,
-    Feed,
-    FeedLinks,
-    Stargazer,
-    Thread,
-    ThreadSubject,
 )
 
 __all__ = [
@@ -122,11 +122,11 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_activity_part001 = importlib.import_module(".activity_part001", __package__)
+_activity_get_feeds = importlib.import_module(".activity_get_feeds", __package__)
 
-_deferred_activity_part001: tuple[tuple[str, object], ...] = (("Discussion", Discussion),)
-for _name, _value in _deferred_activity_part001:
-    setattr(_activity_part001, _name, _value)
+_deferred_activity_get_feeds: tuple[tuple[str, object], ...] = (("Discussion", Discussion),)
+for _name, _value in _deferred_activity_get_feeds:
+    setattr(_activity_get_feeds, _name, _value)
 
 LinkWithType.model_rebuild()
 ThreadSubscription.model_rebuild()

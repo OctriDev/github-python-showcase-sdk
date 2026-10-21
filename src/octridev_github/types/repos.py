@@ -3,7 +3,7 @@
 
 import importlib
 
-from .repos_part001 import (
+from .repos_list_branches import (
     CodeownersErrors,
     CodeownersErrorsErrorsItem,
     CombinedCommitStatus,
@@ -24,7 +24,16 @@ from .repos_part001 import (
     SimpleCommitStatus,
     WaitTimer,
 )
-from .repos_part002 import (
+from .repos_list_collaborators import (
+    Collaborator,
+    CollaboratorPermissions,
+    Language,
+    Tag,
+    TagCommit,
+    Topic,
+    Traffic,
+)
+from .repos_shared import (
     Activity,
     Autolink,
     CloneTraffic,
@@ -35,15 +44,6 @@ from .repos_part002 import (
     ParticipationStats,
     ReferrerTraffic,
     ViewTraffic,
-)
-from .repos_part003 import (
-    Collaborator,
-    CollaboratorPermissions,
-    Language,
-    Tag,
-    TagCommit,
-    Topic,
-    Traffic,
 )
 
 __all__ = [
@@ -87,11 +87,11 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_repos_part002 = importlib.import_module(".repos_part002", __package__)
+_repos_shared = importlib.import_module(".repos_shared", __package__)
 
-_deferred_repos_part002: tuple[tuple[str, object], ...] = (("Traffic", Traffic),)
-for _name, _value in _deferred_repos_part002:
-    setattr(_repos_part002, _name, _value)
+_deferred_repos_shared: tuple[tuple[str, object], ...] = (("Traffic", Traffic),)
+for _name, _value in _deferred_repos_shared:
+    setattr(_repos_shared, _name, _value)
 
 CustomDeploymentRuleApp.model_rebuild()
 DeployKey.model_rebuild()

@@ -3,7 +3,18 @@
 
 import importlib
 
-from .shared_part001 import (
+from .shared10 import Repository, RepositoryCodeSearchIndexStatus, RepositoryPermissions
+from .shared11 import (
+    Label,
+    Link,
+    NullableIntegration,
+    NullableIntegrationOwner,
+    NullableIntegrationPermissions,
+    NullableIssueComment,
+    ServiceUnavailable,
+    Verification,
+)
+from .shared2 import (
     AppPermissions,
     BasicError,
     CvssSeverities,
@@ -13,7 +24,7 @@ from .shared_part001 import (
     NullableSimpleUser,
     ScimError,
 )
-from .shared_part002 import (
+from .shared3 import (
     AuthorAssociation,
     NullableIssueCommentMinimized,
     NullableMilestone,
@@ -22,13 +33,9 @@ from .shared_part002 import (
     ReleaseAsset,
     SubIssuesSummary,
 )
-from .shared_part003 import PublicUser, PublicUserPlan
-from .shared_part004 import (
-    MinimalRepository,
-    MinimalRepositoryLicense,
-    MinimalRepositoryPermissions,
-)
-from .shared_part005 import (
+from .shared4 import PublicUser, PublicUserPlan
+from .shared5 import MinimalRepository, MinimalRepositoryLicense, MinimalRepositoryPermissions
+from .shared6 import (
     AutoMerge,
     CustomPropertyValue,
     EmptyObject,
@@ -42,13 +49,13 @@ from .shared_part005 import (
     RepositoryRulesetConditionsRepositoryPropertyTarget,
     RepositoryRulesetConditionsRepositoryPropertyTargetRepositoryProperty,
 )
-from .shared_part006 import (
+from .shared7 import (
     NullableRepository,
     NullableRepositoryCodeSearchIndexStatus,
     NullableRepositoryPermissions,
 )
-from .shared_part007 import FullRepository, FullRepositoryPermissions
-from .shared_part008 import (
+from .shared8 import FullRepository, FullRepositoryPermissions
+from .shared9 import (
     DiffEntry,
     Enterprise,
     NullableGitUser,
@@ -57,17 +64,6 @@ from .shared_part008 import (
     RepositoryRuleViolationErrorMetadataSecretScanning,
     RepositoryRuleViolationErrorMetadataSecretScanningBypassPlaceholdersItem,
     SecretScanningPushProtectionBypassPlaceholderId,
-)
-from .shared_part009 import Repository, RepositoryCodeSearchIndexStatus, RepositoryPermissions
-from .shared_part010 import (
-    Label,
-    Link,
-    NullableIntegration,
-    NullableIntegrationOwner,
-    NullableIntegrationPermissions,
-    NullableIssueComment,
-    ServiceUnavailable,
-    Verification,
 )
 
 __all__ = [
@@ -131,11 +127,11 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_shared_part007 = importlib.import_module(".shared_part007", __package__)
+_shared8 = importlib.import_module(".shared8", __package__)
 
-_deferred_shared_part007: tuple[tuple[str, object], ...] = (("Repository", Repository),)
-for _name, _value in _deferred_shared_part007:
-    setattr(_shared_part007, _name, _value)
+_deferred_shared8: tuple[tuple[str, object], ...] = (("Repository", Repository),)
+for _name, _value in _deferred_shared8:
+    setattr(_shared8, _name, _value)
 
 FullRepositoryPermissions.model_rebuild()
 FullRepository.model_rebuild()

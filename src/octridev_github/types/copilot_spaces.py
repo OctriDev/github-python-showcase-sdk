@@ -3,7 +3,7 @@
 
 import importlib
 
-from .copilot_spaces_part001 import (
+from .copilot_spaces_shared import (
     CopilotSpaceCollaborator,
     CopilotSpaceCollaboratorVariant0,
     CopilotSpaceCollaboratorVariant1,
@@ -24,7 +24,7 @@ from .copilot_spaces_part001 import (
     CopilotSpacesUpdateForUserResourcesAttributesItem,
     CopilotSpacesUpdateForUserResourcesAttributesItemMetadata,
 )
-from .copilot_spaces_part002 import (
+from .copilot_spaces_shared2 import (
     CopilotSpace,
     CopilotSpaceResourcesAttributesItem,
     CopilotSpaceResourcesAttributesItemMetadata,
@@ -57,11 +57,11 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_copilot_spaces_part001 = importlib.import_module(".copilot_spaces_part001", __package__)
+_copilot_spaces_shared = importlib.import_module(".copilot_spaces_shared", __package__)
 
-_deferred_copilot_spaces_part001: tuple[tuple[str, object], ...] = (("CopilotSpace", CopilotSpace),)
-for _name, _value in _deferred_copilot_spaces_part001:
-    setattr(_copilot_spaces_part001, _name, _value)
+_deferred_copilot_spaces_shared: tuple[tuple[str, object], ...] = (("CopilotSpace", CopilotSpace),)
+for _name, _value in _deferred_copilot_spaces_shared:
+    setattr(_copilot_spaces_shared, _name, _value)
 
 CopilotSpaceCollaboratorVariant0.model_rebuild()
 CopilotSpaceCollaboratorVariant1.model_rebuild()

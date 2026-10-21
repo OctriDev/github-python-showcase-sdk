@@ -3,7 +3,22 @@
 
 import importlib
 
-from .search_part001 import (
+from .search_issues_and_pull_requests import (
+    IssueSearchResultItem,
+    IssueSearchResultItemLabelsItem,
+    IssueSearchResultItemPullRequest,
+    LabelSearchResultItem,
+)
+from .search_repos import (
+    RepoSearchResultItem,
+    RepoSearchResultItemPermissions,
+    TopicSearchResultItem,
+    TopicSearchResultItemAliasesItem,
+    TopicSearchResultItemAliasesItemTopicRelation,
+    TopicSearchResultItemRelatedItem,
+    TopicSearchResultItemRelatedItemTopicRelation,
+)
+from .search_shared import (
     CodeSearchResultItem,
     CommitSearchResultItem,
     CommitSearchResultItemCommit,
@@ -21,22 +36,7 @@ from .search_part001 import (
     SearchTopicsResponse,
     SearchUsersResponse,
 )
-from .search_part002 import (
-    IssueSearchResultItem,
-    IssueSearchResultItemLabelsItem,
-    IssueSearchResultItemPullRequest,
-    LabelSearchResultItem,
-)
-from .search_part003 import (
-    RepoSearchResultItem,
-    RepoSearchResultItemPermissions,
-    TopicSearchResultItem,
-    TopicSearchResultItemAliasesItem,
-    TopicSearchResultItemAliasesItemTopicRelation,
-    TopicSearchResultItemRelatedItem,
-    TopicSearchResultItemRelatedItemTopicRelation,
-)
-from .search_part004 import UserSearchResultItem
+from .search_users import UserSearchResultItem
 
 __all__ = [
     "CodeSearchResultItem",
@@ -71,17 +71,17 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_search_part001 = importlib.import_module(".search_part001", __package__)
+_search_shared = importlib.import_module(".search_shared", __package__)
 
-_deferred_search_part001: tuple[tuple[str, object], ...] = (
+_deferred_search_shared: tuple[tuple[str, object], ...] = (
     ("IssueSearchResultItem", IssueSearchResultItem),
     ("LabelSearchResultItem", LabelSearchResultItem),
     ("RepoSearchResultItem", RepoSearchResultItem),
     ("TopicSearchResultItem", TopicSearchResultItem),
     ("UserSearchResultItem", UserSearchResultItem),
 )
-for _name, _value in _deferred_search_part001:
-    setattr(_search_part001, _name, _value)
+for _name, _value in _deferred_search_shared:
+    setattr(_search_shared, _name, _value)
 
 SearchResultTextMatchesItemMatchesItem.model_rebuild()
 SearchResultTextMatchesItem.model_rebuild()
