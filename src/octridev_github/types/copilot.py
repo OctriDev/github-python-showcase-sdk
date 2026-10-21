@@ -3,7 +3,7 @@
 
 import importlib
 
-from .copilot_part001 import (
+from .copilot_shared import (
     CopilotAddCopilotSeatsForTeamsResponse,
     CopilotAddCopilotSeatsForUsersResponse,
     CopilotAddOrganizationsToEnterpriseCodingAgentPolicyCustomPropertiesItem,
@@ -25,7 +25,7 @@ from .copilot_part001 import (
     EnterpriseTeam,
     NullableOrganizationSimple,
 )
-from .copilot_part002 import CopilotSeatDetails
+from .copilot_shared2 import CopilotSeatDetails
 
 __all__ = [
     "CopilotAddCopilotSeatsForTeamsResponse",
@@ -53,13 +53,13 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_copilot_part001 = importlib.import_module(".copilot_part001", __package__)
+_copilot_shared = importlib.import_module(".copilot_shared", __package__)
 
-_deferred_copilot_part001: tuple[tuple[str, object], ...] = (
+_deferred_copilot_shared: tuple[tuple[str, object], ...] = (
     ("CopilotSeatDetails", CopilotSeatDetails),
 )
-for _name, _value in _deferred_copilot_part001:
-    setattr(_copilot_part001, _name, _value)
+for _name, _value in _deferred_copilot_shared:
+    setattr(_copilot_shared, _name, _value)
 
 CopilotUsageMetrics1DayReport.model_rebuild()
 CopilotUsageMetrics28DayReport.model_rebuild()

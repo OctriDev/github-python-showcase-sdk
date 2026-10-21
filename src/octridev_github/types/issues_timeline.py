@@ -3,7 +3,7 @@
 
 import importlib
 
-from .issues_timeline_part001 import (
+from .issues_timeline_issues_list_events_for_timeline import (
     TimelineAssignedIssueEvent,
     TimelineCommitCommentedEvent,
     TimelineCommittedEvent,
@@ -20,7 +20,7 @@ from .issues_timeline_part001 import (
     TimelineLineCommentedEvent,
     TimelineUnassignedIssueEvent,
 )
-from .issues_timeline_part002 import (
+from .issues_timeline_issues_list_events_for_timeline2 import (
     TimelineCommentEvent,
     TimelineReviewedEvent,
     TimelineReviewedEventLinks,
@@ -53,14 +53,16 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_issues_timeline_part001 = importlib.import_module(".issues_timeline_part001", __package__)
+_issues_timeline_issues_list_events_for_timeline = importlib.import_module(
+    ".issues_timeline_issues_list_events_for_timeline", __package__
+)
 
-_deferred_issues_timeline_part001: tuple[tuple[str, object], ...] = (
+_deferred_issues_timeline_issues_list_events_for_timeline: tuple[tuple[str, object], ...] = (
     ("TimelineCommentEvent", TimelineCommentEvent),
     ("TimelineReviewedEvent", TimelineReviewedEvent),
 )
-for _name, _value in _deferred_issues_timeline_part001:
-    setattr(_issues_timeline_part001, _name, _value)
+for _name, _value in _deferred_issues_timeline_issues_list_events_for_timeline:
+    setattr(_issues_timeline_issues_list_events_for_timeline, _name, _value)
 
 TimelineCrossReferencedEventSource.model_rebuild()
 TimelineCrossReferencedEvent.model_rebuild()
